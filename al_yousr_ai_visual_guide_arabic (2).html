@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>دليل Al Yousr AI — صفحة مرئيّة سهلة</title>
+  <style>
+    :root{
+      --bg:#0b1220;      
+      --card:#121a2b;    
+      --ink:#e6eefc;     
+      --muted:#a9b6d3;   
+      --accent:#00e0c7;  
+      --accent-2:#7aa2ff;
+      --line:#1f2940;    
+      --success:#13d38e; 
+      --warning:#ffd166; 
+      --danger:#ff6b6b;  
+      --shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.03);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(1200px 600px at 85% -10%, #112044 0%, rgba(17,32,68,0) 60%),
+                      radial-gradient(900px 500px at -10% 10%, #0a3d5a 0%, rgba(10,61,90,0) 60%),
+                      var(--bg);
+         font-family: 'Cairo', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+         color:var(--ink); line-height:1.7}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:1100px; margin:0 auto; padding:28px 22px}
+    .hero{position:relative; border:1px solid var(--line); background:linear-gradient(180deg, rgba(18,26,43,.75), rgba(18,26,43,.35));
+          border-radius:24px; padding:28px; box-shadow:var(--shadow); overflow:hidden}
+    .hero:before{content:""; position:absolute; inset:-1px; background:
+      radial-gradient(600px 300px at 20% -10%, rgba(0,224,199,.25), transparent 60%),
+      radial-gradient(600px 300px at 120% 20%, rgba(122,162,255,.22), transparent 60%);
+      pointer-events:none;}
+    .hero h1{margin:0 0 0 0; font-size:36px; letter-spacing:.3px}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; border:1px solid var(--line);
+         background:rgba(255,255,255,.03); color:var(--ink); box-shadow:var(--shadow); cursor:pointer; transition:.2s}
+    .btn:hover{transform:translateY(-1px);}
+    .btn .dot{width:9px; height:9px; border-radius:50%; background:var(--accent)}
+    .grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); margin-top:22px}
+    .card{background:linear-gradient(180deg, rgba(18,26,43,.85), rgba(18,26,43,.6)); border:1px solid var(--line); border-radius:18px; padding:18px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 10px 0; font-size:20px}
+    .card p{margin:0 0 8px 0; color:var(--muted)}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.03); font-size:13px; color:var(--muted)}
+    .steps{counter-reset: step}
+    .step{position:relative; padding:12px 12px 12px 52px; border:1px dashed var(--line); border-radius:16px; margin:10px 0; background:rgba(255,255,255,.02)}
+    .step:before{counter-increment: step; content: counter(step); position:absolute; left:12px; top:10px; width:28px; height:28px; border-radius:10px; background:linear-gradient(135deg, var(--accent), var(--accent-2)); display:grid; place-items:center; font-weight:700; color:#06252a}
+    .tag{font-size:12px; color:#0c1c2a; background:var(--accent); padding:2px 8px; border-radius:14px; font-weight:700}
+    .footer{margin-top:26px; color:var(--muted); font-size:13px}
+    .section-title{font-size:24px; margin:26px 0 10px 0}
+    .flex{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .kbd{background:#0f1a2a; border:1px solid var(--line); padding:2px 8px; border-radius:8px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size:12px}
+    .prompt-wrap{position:relative; background:#0d1829; border:1px solid var(--line); border-radius:16px; padding:14px; box-shadow:var(--shadow);}
+    .prompt-toolbar{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px}
+    .prompt-toolbar .title{font-weight:700; color:var(--ink)}
+    .copy-btn{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.04); cursor:pointer}
+    .copy-btn[aria-pressed="true"]{background:rgba(19,211,142,.15); border-color:rgba(19,211,142,.35)}
+    pre{margin:0; max-height:360px; overflow:auto; direction:ltr; text-align:left; background:transparent; color:#d7e6ff; white-space:pre-wrap}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size:13px}
+    .hint{font-size:12px; color:var(--muted)}
+    .link-card{display:flex; gap:12px; align-items:flex-start}
+    .icon{width:28px; height:28px; flex:0 0 28px; display:grid; place-items:center; border-radius:8px; background:linear-gradient(135deg, rgba(0,224,199,.15), rgba(122,162,255,.15)); border:1px solid var(--line)}
+    .link-card a{display:inline-block; font-weight:700}
+    @media (max-width:640px){ .hero h1{font-size:28px} }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="pill">⚡ Al Yousr AI</div>
+      <h1>كل خطوات إضافة المنتجات والمتابعة — بشكل بسيط وسريع</h1>
+      <div class="cta-row">
+        <button class="btn" onclick="document.getElementById('add-products').scrollIntoView({behavior:'smooth'})">
+          <span class="dot"></span>
+          إضافة المنتجات
+        </button>
+        <button class="btn" onclick="document.getElementById('images').scrollIntoView({behavior:'smooth'})">
+          <span class="dot" style="background:var(--accent-2)"></span>
+          رفع الصور
+        </button>
+        <button class="btn" onclick="document.getElementById('orders').scrollIntoView({behavior:'smooth'})">
+          <span class="dot" style="background:var(--success)"></span>
+          تتبّع الطلبات
+        </button>
+        <button class="btn" onclick="document.getElementById('support').scrollIntoView({behavior:'smooth'})">
+          <span class="dot" style="background:var(--warning)"></span>
+          دعم وتصعيد
+        </button>
+      </div>
+    </section>
+
+    <!-- PROMPT (ENGLISH ONLY) -->
+    <section id="prompt" style="margin-top:24px">
+      <div class="section-title">البرومبت الجاهز (بالإنجليزي)</div>
+      <div class="prompt-wrap" aria-live="polite">
+        <div class="prompt-toolbar">
+          <div class="title">Product Information Structuring Prompt</div>
+          <button id="copyBtn" class="copy-btn" type="button" aria-pressed="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 9h9v9H9z" stroke="currentColor" stroke-width="1.5"/><path d="M6 6h9" stroke="currentColor" stroke-width="1.5"/></svg>
+            Copy prompt
+          </button>
+        </div>
+        <pre id="promptText"><code>
+You are a product catalog expert tasked with converting unstructured product information into a highly organized, standardized format. Follow this structure exactly:
+
+Input Requirements:
+- Unstructured product information (text, descriptions, specifications)
+- Starting ID number (continue sequentially from this number)
+- Store name/brand (if provided)
+
+Output Structure Rules:
+1. Document Header
+# دليل منتجات [STORE_NAME] - [MAIN_PRODUCT_NAME]
+
+2. Product Grouping Logic
+- Group products by actual variants only (colors, materials, styles, features that create different SKUs)
+- DO NOT create separate groups for sizes, dimensions, or capacity unless they represent fundamentally different products
+- Each group should represent products that are essentially the same but with variant options
+
+3. Group Structure Template
+## المجموعة [NUMBER]: [PRODUCT_NAME] [VARIANT_DESCRIPTION]
+
+**النوع:** [Detailed product type and variant description]
+**السعر:** [Current price] جنيه [بدلاً من [Original price] جنيه - if applicable]
+**المقاس:** [Dimensions in format: length×width×height unit]
+
+### المواصفات التفصيلية:
+[Detailed bullet points of all specifications, features, contents, materials]
+- [Feature 1]
+- [Feature 2 with sub-items if needed]:
+  - [Sub-item 1]
+  - [Sub-item 2]
+
+### الألوان المتاحة: [or المتغيرات المتاحة if not colors]
+- [Variant 1] (ID: [Sequential ID])
+- [Variant 2] (ID: [Sequential ID])
+- [Variant 3] (ID: [Sequential ID])
+
+4. ID Assignment Rules
+- Start from the provided last ID number + 1
+- Assign sequential IDs to each true variant (colors, styles, materials)
+- Continue numbering across all product groups
+- Reserve additional IDs for any special services/add-ons mentioned
+
+5. Additional Sections (if applicable)
+### المميزات العامة لجميع [PRODUCT_TYPE]:
+
+#### التعبئة والتغليف:
+[Packaging details]
+
+#### خدمات إضافية:
+[Additional services with IDs if they're orderable items]
+
+#### الشحن والتوصيل:
+[Shipping information]
+
+## ملاحظات مهمة:
+[Important notes about quality, usage, warranty, etc.]
+
+6. Specific Formatting Requirements:
+Pricing Format:
+- If discount: XXX جنيه بدلاً من YYY جنيه
+- If no discount: XXX جنيه
+
+Dimensions Format:
+- Use × for multiplication: 11×9×2 سم
+- Include units (سم, متر, etc.)
+
+Features List:
+- Use bullet points with detailed descriptions
+- Group related features logically
+- Include quantities/numbers where relevant
+
+Variants:
+- Only create variants for actual product differences (colors, materials, styles)
+- Format: [Description] (ID: [Number])
+- Use descriptive Arabic names
+
+7. Content Organization Rules:
+- Extract all product information from the unstructured input
+- Group by actual variants - not by sizes or minor differences
+- Maintain consistency in naming and descriptions across groups
+- Include all specifications found in the original text
+- Preserve pricing information exactly as provided
+- Use professional Arabic product descriptions
+- Maintain logical flow from general to specific information
+
+8. Quality Checks:
+- Ensure all IDs are sequential and unique
+- Verify all product information is included
+- Check that groupings make logical sense
+- Confirm pricing format consistency
+- Validate that only true variants get separate IDs
+
+Example Processing:
+Input: "We have leather wallets in black, brown, and beige. Size is 11x9x2cm. Price 395 instead of 550. Also zippered version same colors and price but size 11x8x2cm. Premium imported leather, multiple card slots."
+Output: Two groups (regular vs zippered), each with 3 color variants, sequential IDs, organized specifications.
+
+Now process the provided unstructured product information following this exact structure and rules.
+
+Info: {{info about the product in casual language}}
+        </code></pre>
+        <div class="hint">انسخ البرومبت وحطّه في ChatGPT مع تفاصيل المنتج الخام.</div>
+      </div>
+    </section>
+
+    <!-- HOW TO ADD PRODUCTS -->
+    <section id="add-products" style="margin-top:26px">
+      <div class="section-title">إزاي نضيف المنتجات بخطوات بسيطة</div>
+      <div class="grid steps">
+        <div class="card step">
+          <h3>جهّز المعلومات الخام</h3>
+          <p>اجمع أي تفاصيل موجودة عن المنتج (وصف، خامات، سعر، ألوان، مقاسات). مش لازم تكون مرتّبة—البرومبت هيظبطها.</p>
+        </div>
+        <div class="card step">
+          <h3>استخدم البرومبت فوق</h3>
+          <p>انسخ البرومبت الإنجليزي واضف البيانات الخام. الـ AI هيرجع لك <strong>مجموعات</strong> منظّمة + <strong>IDs</strong> متسلسلة للمتغيّرات.</p>
+        </div>
+        <div class="card step">
+          <h3>انسخ النتائج للشيـت الرسمي</h3>
+          <div class="link-card">
+            <div class="icon">📄</div>
+            <div>
+              <a href="https://docs.google.com/spreadsheets/d/1KDAgJTOlCIjFHO7JDJbpsPNtDToT7HjH-_BzMxLs1Y0/edit?usp=sharing" target="_blank" rel="noopener">فتح شيـت المنتجات</a>
+              <p class="hint">انقل العناوين والوصف والأسعار والـ IDs بالترتيب اللي البرومبت رجّعه.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMAGES -->
+    <section id="images" style="margin-top:26px">
+      <div class="section-title">رفع صور المنتجات</div>
+      <div class="grid">
+        <div class="card">
+          <h3>استخدم نفس الـ IDs</h3>
+          <p>حمّل صور كل متغيّر (لون/ستايل) بنفس الـ <strong>ID</strong> اللي طلع من الخطوة اللي فاتت.</p>
+          <div class="link-card">
+            <div class="icon">🖼️</div>
+            <div>
+              <a href="https://drive.google.com/drive/folders/1HjDkHaJh76vEpCjCQVD04NaYjcyPPIiE?usp=sharing" target="_blank" rel="noopener">مجلّد صور المنتجات</a>
+              <p class="hint">حافظ على التسمية بالـ ID علشان الربط يبقى تلقائي.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card step">
+          <h3>بعد رفع الصور — دوس زر البدء</h3>
+          <p>بعد ما تخلص رفع الصور، دوس زر الاختصار <span class="kbd">Start / إضافة</span> علشان تبدأ إضافة <strong>صور</strong> المنتج للنظام.</p>
+        </div>
+        <div class="card">
+          <h3>تنظيم الصور</h3>
+          <p>خلي الصورة الرئيسية أوّل واحدة في كل فولدر، والباقي زوايا/تفاصيل. الجودة العالية بتفرق في المبيعات.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDERS -->
+    <section id="orders" style="margin-top:26px">
+      <div class="section-title">متابعة الطلبات</div>
+      <div class="grid">
+        <div class="card">
+          <h3>لوحة تتبّع الطلبات</h3>
+          <div class="link-card">
+            <div class="icon">📊</div>
+            <div>
+              <a href="https://docs.google.com/spreadsheets/d/1b4RDuGNIv8QMx5AGoo3ugPxOXG5ldyTZidRzUaaZ1Ls/edit?usp=sharing" target="_blank" rel="noopener">فتح شيـت تتبّع الطلبات</a>
+              <p class="hint">حدّث الحالات أول بأول علشان فريق الدعم والتوصيل يبقوا على اتّصال.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>أسئلة العملاء والردود</h3>
+          <div class="link-card">
+            <div class="icon">🤖</div>
+            <div>
+              <a href="https://t.me/csalyosrbot" target="_blank" rel="noopener">بوت استلام أسئلة العملاء (Telegram)</a>
+              <p class="hint">أي سؤال من البوت بيظهر ومعاه <strong>ID</strong> العميل (قابل للبحث في الماسنجر).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT / ESCALATION -->
+    <section id="support" style="margin-top:26px">
+      <div class="section-title">التصعيد وطلبات الاسترجاع</div>
+      <div class="grid">
+        <div class="card">
+          <h3>قناة التصعيد</h3>
+          <div class="link-card">
+            <div class="icon">🆘</div>
+            <div>
+              <a href="https://t.me/Handyousrbot" target="_blank" rel="noopener">بوت التصعيد (Refund / Human)</a>
+              <p class="hint">استخدمه للحالات الخاصة، الاسترجاع، أو لو العميل طالب التحدّث مع شخص.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>ملاحظات سريعة</h3>
+          <p>اتأكّد إن كل منتج ليه وصف عربي واضح، الأسعار بصيغة <span class="kbd">XXX جنيه بدلاً من YYY جنيه</span> لو فيه خصم، والأبعاد بصيغة <span class="kbd">11×9×2 سم</span>.</p>
+          <p class="hint">لو متغيرات المنتج مش ألوان، سمّها <strong>المتغيرات المتاحة</strong> بدل <strong>الألوان المتاحة</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">© Al Yousr — صفحة مخصّصة لفريق التشغيل. أي تحديثات هنضيفها هنا.</div>
+  </div>
+
+  <script>
+    const copyBtn = document.getElementById('copyBtn');
+    const promptText = document.getElementById('promptText');
+    copyBtn?.addEventListener('click', async () => {
+      const text = promptText.innerText.trim();
+      try{
+        await navigator.clipboard.writeText(text);
+        copyBtn.setAttribute('aria-pressed','true');
+        copyBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="1.8"/></svg> Copied!`;
+        setTimeout(()=>{
+          copyBtn.setAttribute('aria-pressed','false');
+          copyBtn.innerHTML = `<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M9 9h9v9H9z\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M6 6h9\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg> Copy prompt`;
+        },1600);
+      }catch(e){
+        copyBtn.innerHTML = 'Copy failed';
+      }
+    });
+  </script>
+</body>
+</html>
